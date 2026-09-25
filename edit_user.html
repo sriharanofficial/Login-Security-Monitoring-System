@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User</title>
+</head>
+
+<body>
+
+    <h1>✏️ Edit User</h1>
+
+    <form method="POST">
+
+        <label>Username:</label>
+        <input
+            type="text"
+            name="username"
+            value="{{ user.username }}"
+            required
+        >
+
+        <br><br>
+
+        <label>Email:</label>
+        <input
+            type="email"
+            name="email"
+            value="{{ user.email }}"
+            required
+        >
+
+        <br><br>
+
+        <label>Role:</label>
+
+        <select name="role">
+
+            <option value="user"
+                {% if user.role == "user" %}selected{% endif %}>
+                User
+            </option>
+
+            <option value="admin"
+                {% if user.role == "admin" %}selected{% endif %}>
+                Admin
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">
+            Update User
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/users">← Back to Users</a>
+
+</body>
+</html>
